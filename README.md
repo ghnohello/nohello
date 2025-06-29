@@ -62,5 +62,4 @@ Just don’t say only "Hello"! 😉
 
 ## 🙏 Credits
 
-Inspired by the original [NoHello.net](https://nohello.net/)  
 Built and maintained by the community at [nohello.in](https://www.linkedin.com/company/nohello)
