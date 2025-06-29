@@ -1,65 +1,66 @@
-# 👋 No Hello
+# 🌐 [nohello.in](https://nohello.in) — End the Lonely "Hello"
 
-A simple advocacy page promoting better chat etiquette — specifically, avoiding "just Hello" messages in online communication.
-
----
-
-## 🚀 Mission
-
-We're on a mission to end lonely "Hello?" messages and encourage clear, respectful, and productive online conversations. 
-
-Typing "Hello" and waiting for a reply wastes time. Ask your question up front — be kind *and* efficient.
+> A friendly reminder: don't just say "Hello" in chat — say what you need.  
+> Save time. Respect attention. Communicate better. ✨
 
 ---
 
-## 📖 Live Demo
+## 👋 What is NoHello?
 
-Check it out here: [https://yourusername.github.io/nohello/](https://yourusername.github.io/nohello/)  
-*(Replace with your GitHub Pages link once deployed)*
+**NoHello** is a simple, open-source advocacy project promoting better chat etiquette.
+
+Instead of typing just "Hello" (and making others wait), ask your question right away.  
+We help people chat more effectively on platforms like Slack, Teams, Discord, and more.
+
+---
+
+## 🧠 Why it matters
+
+Typing “Hello” and waiting is like calling someone, saying “Hi,” and putting them on hold.  
+This habit wastes time and adds unnecessary friction in async communication.
 
 ---
 
 ## 💌 Got a story?
 
-Have a ‘Hello’ story or an idea to improve the page?  
-We might feature you on LinkedIn — share it at **[hello@nohello.in](mailto:hello@nohello.in)**
+Have a funny, awkward, or insightful **“Hello” story**?  
+We might feature it on LinkedIn — email us at **[hello@nohello.in](mailto:hello@nohello.in)**
 
 ---
 
-## 🗣 Join the Conversation
+## 🔥 Join the community
 
-We're building a community of like-minded people who care about better communication.
-
-💬 Discuss and share stories on Reddit: [r/nohelloin](https://www.reddit.com/r/nohelloin/)
+- 💬 Share your experience: [r/nohelloin on Reddit](https://www.reddit.com/r/nohelloin/)
+- 🧑‍💻 Follow updates: [NoHello on LinkedIn](https://www.linkedin.com/company/nohello)
 
 ---
 
 ## 🛠 Want to contribute?
 
-This is an open-source project. We welcome:
-- Design improvements
-- Language translations
-- More story examples
-- Accessibility and performance enhancements
+This is an open-source project, and we welcome contributions:
 
-🔗 [Join us on GitHub](https://github.com/your-repo-link)
+- Design/UI enhancements
+- New language/localization support
+- Code or content improvements
+- Funny examples or stories
+
+👉 [Join us on GitHub](https://github.com/your-repo-link) *(replace with your repo)*
 
 ---
 
-## 📊 Analytics
+## 📈 Analytics Notice
 
-This site uses Google Analytics to understand how people interact with it.  
-No personal data is collected.
+This site uses Google Analytics to understand visitor behavior — no personal data is collected.
 
 ---
 
 ## 📄 License
 
-MIT — feel free to use, remix, and improve.  
-Just don’t say only "Hello"! 😉
+MIT — free to use, modify, and share.  
+Just remember: say more than just "Hello." 🚀
 
 ---
 
-## 🙏 Credits
+## 🙌 Credits
 
-Built and maintained by the community at [nohello.in](https://www.linkedin.com/company/nohello)
+Brought to life by the community at [nohello.in](https://nohello.in)
