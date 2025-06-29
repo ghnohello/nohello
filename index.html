@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="description" content="Learn better chat etiquette: Stop saying just 'Hello' in messages. Get tips for more productive online communication.">
+  <meta name="keywords" content="chat etiquette, communication tips, productivity, online chat, slack etiquette, ask better questions, asynchronous communication">
+  <meta name="author" content="nohello.in">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>No Hello</title>
+  <link rel="icon" href="nohello.ico" type="image/x-icon" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #181818;
+      color: #f5f5f5;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    #intro-text {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 6vw;
+      white-space: nowrap;
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+      text-align: center;
+    }
+
+    #skip-btn {
+      position: absolute;
+      top: calc(55% + 20px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: transparent;
+      color: #fff;
+      padding: 10px 24px;
+      cursor: pointer;
+      border-radius: 30px;
+      font-size: 1rem;
+      z-index: 10;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(4px);
+      transition: border-radius 0.3s ease, border-color 0.3s ease;
+    }
+
+    @keyframes borderFlow {
+      0% {
+        border-image: linear-gradient(270deg, maroon, green, maroon) 1;
+      }
+      50% {
+        border-image: linear-gradient(90deg, green, maroon, green) 1;
+      }
+      100% {
+        border-image: linear-gradient(270deg, maroon, green, maroon) 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .strike-red {
+      position: relative;
+      display: inline-block;
+      color: inherit;
+    }
+
+    .strike-red::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: red;
+      transform: translateY(-50%);
+    }
+
+    #content-wrapper {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #main-frame {
+      border: none;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="intro-text"></div>
+  <button id="skip-btn">Skip Intro</button>
+  <div id="content-wrapper">
+    <iframe id="main-frame" src="nohello.html"></iframe>
+  </div>
+
+  <script>
+    const introWords = [
+      { text: "no", delay: 900 },
+      { text: "more", delay: 600 },
+      { text: "<strong class='strike-red'>hello</strong>", delay: 600 },
+      { text: "&", delay: 600 },
+      { text: "wait", delay: 600 },
+      { text: "just", delay: 600 },
+      { type: "typing", delay: 1300 }
+    ];
+
+    const textEl = document.getElementById("intro-text");
+    const wrapper = document.getElementById("content-wrapper");
+    const skipBtn = document.getElementById("skip-btn");
+
+    let wordIndex = 0;
+
+    skipBtn.addEventListener("click", showContent);
+
+    function showNextWord() {
+      textEl.style.opacity = 0;
+      void textEl.offsetWidth;
+
+      let word = introWords[wordIndex];
+      let delay = 300;
+
+      if (word && word.type === "typing") {
+        textEl.innerHTML = "<span></span>";
+        const span = textEl.querySelector("span");
+        const fullText = "ask.";
+        let i = 0;
+
+        function typeChar() {
+          span.textContent = fullText.slice(0, i);
+          i++;
+          if (i <= fullText.length) {
+            setTimeout(typeChar, 120);
+          } else {
+            textEl.innerHTML = "<strong>ask</strong><span style='color: green;'>.</span>";
+            setTimeout(showContent, word.delay || 1000);
+          }
+        }
+
+        typeChar();
+        return;
+      }
+
+      if (typeof word === 'object') {
+        textEl.innerHTML = word.text;
+        delay = word.delay || 150;
+      }
+
+      textEl.style.animation = "fadeIn 0.5s forwards";
+      wordIndex++;
+
+      if (wordIndex < introWords.length) {
+        setTimeout(showNextWord, delay);
+      }
+    }
+
+    function showContent() {
+      document.body.style.overflow = 'auto';
+      textEl.style.display = 'none';
+      wrapper.style.display = 'block';
+      skipBtn.style.display = 'none';
+    }
+
+    showNextWord();
+  </script>
+</body>
+
+</html>
