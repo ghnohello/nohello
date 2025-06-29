@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="description" content="Learn better chat etiquette: Stop saying just 'Hello' in messages. Get tips for more productive online communication.">
+  <meta name="keywords" content="chat etiquette, communication tips, productivity, online chat, slack etiquette, ask better questions, asynchronous communication">
+  <meta name="author" content="nohello.in">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6XKPHBTJ9M"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-6XKPHBTJ9M');
+  </script>
+  <link rel="icon" href="nohello.ico" type="image/x-icon" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>No Hello</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #1c1c1c, #2e2e2e);
+      color: #e0e0e0;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .chat-box {
+      background: rgba(30, 30, 30, 0.75);
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 12px;
+      color: #e0e0e0;
+      border: 1px solid rgba(173, 216, 230, 0.15);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 4px 12px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .chat-line {
+      margin: 5px 0;
+    }
+
+    .timestamp {
+      color: #bbb;
+      margin-right: 6px;
+    }
+
+    .user {
+      font-weight: bold;
+      margin-right: 4px;
+    }
+
+    .message {
+      margin-left: 2px;
+    }
+
+    .instruction {
+      margin-top: 20px;
+    }
+
+    .dynamic-title {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: clamp(48px, 12vw, 175px);
+      font-weight: bold;
+      color: #ffffff;
+      flex-wrap: wrap;
+    }
+
+    .dynamic-title .main-text,
+    .dynamic-title .strike-text {
+      font-weight: bold;
+    }
+
+    .dynamic-title .strike-text {
+      position: relative;
+      margin-left: 10px;
+    }
+
+    .dynamic-title .strike-text::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: clamp(4px, 0.1em, 16px);
+      background-color: red;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .additional-text {
+      font-size: 42px;
+      font-family: 'Courier New', Courier, monospace;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.5s ease;
+    }
+
+    .subtitle {
+      font-size: 30px;
+      font-family: 'Courier New', Courier, monospace;
+      color: #aaa;
+      margin-top: -20px;
+      margin-bottom: 30px;
+    }
+
+    .subtitle .changing-subtitle,
+    .top-right-date {
+      color: #cfd8dc;
+    }
+
+    .top-right-date {
+      position: absolute;
+      top: -90px;
+      right: 20px;
+      font-size: 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bold;
+      text-align: right;
+    }
+
+    .glow-layer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(
+          ellipse at bottom left,
+          rgba(200, 0, 0, var(--red-opacity, 0.8)) 0%,
+          transparent 70%
+        ),
+        radial-gradient(
+          ellipse at bottom right,
+          rgba(0, 128, 0, var(--green-opacity, 0)) 0%,
+          transparent 70%
+        );
+      mask-image: linear-gradient(to top right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+      -webkit-mask-image: linear-gradient(to top right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+      transition: background 0.3s ease;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="glow-layer red-glow"></div>
+  <div class="glow-layer green-glow" id="greenGlow"></div>
+  <script>
+    window.addEventListener('scroll', () => {
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const scrollY = window.scrollY;
+      const progress = Math.min(scrollY / maxScroll, 1);
+      const redOpacity = 0.8 * (1 - progress);
+      const greenOpacity = 0.8 * progress;
+      document.documentElement.style.setProperty('--red-opacity', redOpacity.toFixed(2));
+      document.documentElement.style.setProperty('--green-opacity', greenOpacity.toFixed(2));
+    });
+  </script>
+
+  <div class="container">
+    <div class="top-right-date" id="currentDate"></div>
+    <h1 class="dynamic-title">
+      <span class="main-text">no</span>
+      <span class="strike-text" id="changingText">Hello</span>
+    </h1>
+    <p class="subtitle">Please don't say just <span class="changing-subtitle" id="changingWord">مرحبا</span> in chat</p>
+    <p class="additional-text">It's like calling someone, saying "Hello!" and then putting them on hold! 🤦‍♀️</p>
+    <h1>Don't Say Just <span style="color: inherit; text-decoration: none; position: relative; display: inline-block;">Hello
+        <span style="position: absolute; top: 50%; left: 0; right: 0; height: 4px; background-color: red; transform: translateY(-50%); width: 100%;"></span>
+      </span> In Chat!</h1>
+
+    <div class="chat-box">
+      <div class="chat-line"><span class="timestamp">10:00 AM</span> <span class="user">you:</span> <span class="message">Hi.</span></div>
+      <div class="chat-line"><span class="timestamp">10:01 AM</span> <span class="user">co-worker:</span> <span class="message">Hello.</span></div>
+      <div class="chat-line"><span class="user">CO-WORKER WAITS WHILE YOU PHRASE YOUR QUESTION</span></div>
+      <div class="chat-line"><span class="timestamp">10:03 AM</span> <span class="user">you:</span> <span class="message">I'm working on [something] and I'm trying to do [etc...]</span></div>
+      <div class="chat-line"><span class="timestamp">10:06 AM</span> <span class="user">co-worker:</span> <span class="message">Oh, that's [answer...]</span></div>
+    </div>
+
+    <div class="instruction">
+      <h1>Please <span style="color: green;">do</span> this instead:</h1>
+      <div class="chat-box">
+        <div class="chat-line"><span class="timestamp">10:00 AM</span> <span class="user">you:</span> <span class="message">Hi -- I'm working on [something] and I'm trying to do [etc...]</span></div>
+        <div class="chat-line"><span class="timestamp">10:02 AM</span> <span class="user">co-worker:</span> <span class="message">[answers question]</span></div>
+      </div>
+    </div>
+
+    <section>
+      <p>Note that you get help minutes sooner, and you don't make them wait. Instead, the co-worker can start thinking about your question right away!</p>
+      <p>You're trying to be polite by not jumping right into the request, like you would do in person or on the phone. But Chat is neither of those things. Typing is much slower than talking. Instead of being polite, you are just making the other person wait for you to phrase your question, which is lost productivity.</p>
+      <p>The same goes for "Hello -- Are you there?", "Hi Ajay -- quick question.", "Do you have a sec ?", "yt?" and "ping". Just ask the question!</p>
+      <p>If you feel it's brusque to simply say "Hi" and ask the question, you can do something like this:</p>
+      <div class="chat-box">
+        <div class="chat-line"><span class="timestamp">10:00 AM</span> <span class="user">you:</span> <span class="message">Hi -- if you're not busy I was wondering if I could ask a question. I'm working on [something] and I'm trying to do [etc...]</span></div>
+      </div>
+		<p>
+		  Got suggestions or creative ideas to enhance the page? Send them to
+		  <a href="mailto:hello@nohello.in" style="color: #00BFFF;">hello@nohello.in</a>
+		</p>
+		<p>
+		  Curious how a simple "Hello" might be killing productivity? 
+		  <a href="https://www.linkedin.com/company/nohello"
+			 target="_blank"
+			 rel="noopener noreferrer"
+			 style="color: #00BFFF; font-weight: bold;">
+			Follow us on LinkedIn
+		  </a>
+		</p>
+    </section>
+  </div>
+
+  <script>
+    const words = ["Hello", "Hi", "Hola", "Bonjour", "Hallo", "Ciao", "Namaste", "مرحبا", "Привет", "Olá", "Salve", "Shalom", "Hej", "Goddag", "Hei", "Tere", "Hallå", "Merhaba", "Sawubona", "Jambo", "Kia ora", "Ahoy", "Aloha", "Halo", "Szia", "Hoi", "Labas", "Sveiki", "Γεια σας", "Selamat", "Sawadee", "Xin chào", "Helo", "Dia dhuit", "Hallo", "Bula", "Talofa", "Salaam", "Mingalaba", "Yassas", "Saluton", "Sveiks", "Hallo", "Tashi delek", "Kamusta", "Privet", "Konnichiwa", "Annyeong", "Bok", "Zdravo", "Zdrasti", "Habari", "Kedu", "Mbolo", "Mbote", "Chào bạn", "Selam", "Salam", "Hujambo", "Goedendag", "Ahoj", "Zdravo", "Sawatdi", "Nnọọ", "Bawo ni", "Szia", "Salut", "Namaskaram", "Vanakkam", "Swagatham", "Namaskara", "Nomoshkar", "Witaj"];
+
+    const changingText = document.getElementById("changingText");
+    const changingWord = document.getElementById("changingWord");
+    let currentWordIndex = 0;
+    let isDeleting = false;
+    let currentText = "";
+    const typingSpeed = 100;
+    const delayBetweenWords = 2000;
+
+    function typeEffect() {
+      const fullWord = words[currentWordIndex];
+      if (!isDeleting) {
+        currentText = fullWord.slice(0, currentText.length + 1);
+      } else {
+        currentText = fullWord.slice(0, currentText.length - 1);
+      }
+      changingText.textContent = currentText;
+      changingWord.textContent = fullWord;
+      if (!isDeleting && currentText === fullWord) {
+        setTimeout(() => {
+          isDeleting = true;
+          typeEffect();
+        }, delayBetweenWords);
+      } else if (isDeleting && currentText === "") {
+        isDeleting = false;
+        currentWordIndex = (currentWordIndex + 1) % words.length;
+        setTimeout(typeEffect, typingSpeed);
+      } else {
+        setTimeout(typeEffect, typingSpeed);
+      }
+    }
+
+    typeEffect();
+
+    function formatDate(date) {
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric'
+      };
+      return date.toLocaleString('en-US', options).replace(' at ', ' ');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setInterval(() => {
+        document.getElementById('currentDate').innerHTML = formatDate(new Date());
+      }, 1000);
+    });
+  </script>
+</body>
+
+</html>
