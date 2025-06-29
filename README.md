@@ -44,7 +44,7 @@ This is an open-source project, and we welcome contributions:
 - Code or content improvements
 - Funny examples or stories
 
-👉 [Join us on GitHub](https://github.com/your-repo-link) *(replace with your repo)*
+👉 [Join us on GitHub](https://github.com/ghnohello/nohello)
 
 ---
 
